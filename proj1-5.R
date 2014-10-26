@@ -16,7 +16,7 @@ sd_theory <- c()
 for (n in sample_n) {  
   mu <- n * p
   mu_theory <- c(mu_theory, mu)
-  sd <- sqrt(n * p * (1 - p))
+  sd <- sqrt(p * (1 - p))
   sd_theory <- c(sd_theory, sd)
   
   xbar <- 0.0
