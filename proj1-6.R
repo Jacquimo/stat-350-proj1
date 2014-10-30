@@ -9,14 +9,14 @@ p <- 1.0 / 6.0
 #sd <- 0.5
 meanData <- c()
 sdData <- c()
-sample_n <- c(1, 2, 5, 10, 15, 20)
+sample_n <- c(1, 5, 10, 20, 30, 40, 50, 60, 70, 80)
 mu_theory <- c()
 sd_theory <- c()
 
 for (n in sample_n) {  
-  mu <- n * p
+  mu <- p
   mu_theory <- c(mu_theory, mu)
-  sd <- sqrt(p * (1 - p))
+  sd <- sqrt(p * (1 - p)) / sqrt(n)
   sd_theory <- c(sd_theory, sd)
   
   xbar <- 0.0
@@ -25,7 +25,7 @@ for (n in sample_n) {
   # calculate the sampling distribution of means and some other things
   for (i in 1:1000) {
     # dist <- rexp(n, rate=lambda)
-    dist <- rbinom(n, 6, p)
+    dist <- rbinom(n, 1, p)
     mean <- mean(dist)
     mean_dist <- c(mean_dist, mean)
     xbar <- xbar + mean
